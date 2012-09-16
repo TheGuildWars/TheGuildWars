@@ -1,0 +1,16 @@
+<div class="row">
+	<%= form_for @article do |f| %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+	<div class="span4">
+		<%= f.label :title %><%= f.text_field :title %>
+		<div class="well">
+			<%= f.submit "Create Post", class: "btn btn-primary" %>
+			<%= link_to "Cancel", articles_path, class: "btn btn-danger" %>
+		</div>
+	</div>
+	<div class="span8">
+		<%= f.label :body %>
+		<%= f.text_area :body, style: 'width:600px;' %>
+	</div>
+	<% end %>
+</div>

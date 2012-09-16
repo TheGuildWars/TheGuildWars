@@ -1,0 +1,29 @@
+<div class="page-header">
+	<h1>About</h1>
+</div>
+
+<div class="row">
+	<div class="span7">
+		<%= render 'short_about' %><br />
+		<br />
+		The source for TGW is hosted on <%= link_to "GitHub", "https://github.com", target: "_BLANK" %> at <%= link_to "TheGuildWars/TheGuildWars", "https://github.com/TheGuildWars/TheGuildWars", target: "_BLANK" %>.
+	</div>
+	<div class="span5">
+		<h2>Technology</h2>
+		TGW is written in <%= link_to "Rails", "http://rubyonrails.org/", target: "_BLANK" %> and uses a bunch of open source libraries:
+		<ul>
+			<li><b>Ruby</b>
+				<ul>
+					<li><b>CanCan</b> An authorization system used throughout the site to make sure users can only do what they are supposed to.</li>
+					<li><b>Devise</b> A full stack authentication system which handles all user management.</li>
+					<li><b><%= link_to 'Markabb', "http://markabb.arcath.net", target: "_BLANK" %></b> A BBCode parsing library used throughout the site for all large text areas.</li>
+				</ul>
+			</li>
+			<li><b>CSS</b>
+				<ul>
+					<li><b>Twitter Bootstrap</b> The amazing CSS library from Twitter CSS Library written by twitter. Provides alot of the sites Look &amp; feel</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>

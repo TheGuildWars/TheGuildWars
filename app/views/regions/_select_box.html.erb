@@ -1,0 +1,11 @@
+<div class="span4">
+	<h2><%= @region.name%> </h2>
+</div>
+
+<% @region.worlds.order("name ASC").each do |world| %>
+	<div class="span2">
+		<div class="tgw-box" style="margin-bottom:10px;">
+			<%= link_to world.name, "#", class: "world-select", :"data-world-id" => world.id %> (<%= world.users.count %>)
+		</div>
+	</div>
+<% end %>

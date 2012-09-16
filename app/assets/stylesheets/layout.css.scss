@@ -1,0 +1,53 @@
+@import "compass";
+
+.tgw-header{
+	height:150px;
+	background-image:url(/assets/splash.png);
+	@include border-radius(10px);
+}
+
+.tgw-info{
+	height:130px;
+}
+
+.tgw-box{
+		@include border-radius(10px);
+		background-image:url(/assets/box_bg.png);
+		color:#fff;
+		padding:10px;
+		text-align:center;
+}
+
+.article-row{
+	margin-bottom:15px;
+}
+
+body{
+	background-image:url(/assets/top.png);
+	background-position:top right;
+	background-repeat:no-repeat;
+}
+
+html, body{
+		height:100%;
+}
+
+#main{
+	min-height:100%;
+	height:auto !important;
+ 	height:100%;
+	position:relative;
+	
+	.tgw-footer{
+		background-image:url(/assets/bottom.png);
+		background-position:bottom-left;
+		background-repeat:no-repeat;
+		height:100px;
+		text-align:center;
+		padding-top:100px;
+		width:100%;
+		position:absolute;
+		bottom:0px;
+		color:#fff;
+	}
+}

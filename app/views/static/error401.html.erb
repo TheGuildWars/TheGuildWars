@@ -1,0 +1,18 @@
+<div class="page-header">
+	<h1>Access Denied <small>You do not have permission to view this page</small></h1>
+</div>
+
+<div class="row">
+	<div class="span8">
+		If you where linked to this page from another on The Guild Wars please post a topic in the Help &amp; Feedback section on the forum explaining how you got here.
+	</div>
+	<div class="span4">
+		<div class="tgw-box">
+			<% unless current_user %>
+				Please <%= link_to "Sign in", new_user_session_path %> and try again
+			<% else %>
+				FOO
+			<% end%>
+		</div>
+	</div>
+</div>

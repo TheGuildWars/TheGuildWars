@@ -1,0 +1,16 @@
+<div class="page-header">
+	<h1><%= @article.title %></h1>
+</div>
+
+<div class="row">
+	<div class="span10">
+		<%= @article.body.markabb %>
+	</div>
+	<div class="span2">
+		Posted By<br />
+		<%= @article.user.username %><br />
+		<br />
+		Posted On<br />
+		<%= @article.created_at.strftime(date_string) %>
+	</div>
+</div>

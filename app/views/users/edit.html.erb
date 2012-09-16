@@ -1,0 +1,33 @@
+<div class="page-header">
+	<h1>Edit User <small><%= @user.username %></small></h1>
+</div>
+
+<%= form_for @user do |f|%>
+	<div class="row">
+		<div class="span2">
+			<%= f.label :username %>
+		</div>
+		<div class="span6">
+			<%= f.text_field :username, disabled: true %>
+		</div>
+		<div class="span4">
+			<div class="tgw-box">
+				<%= link_to "View your Profile", user_path(@user), id: "profile_link", :"data-user-id" => @user.id %><br />
+				<%= link_to "Change Email &amp; Password", edit_user_registration_path %>
+			</div>
+		</div>
+	</div>
+<% end %>
+
+<% unless @user.world_id %>
+	<h2>World Selection</h2>
+	<div class="row" id="region-box">
+		<% @regions.each do |region| %>
+			<div class="span<%= (12 / @regions.count).to_i %>">
+				<div class="tgw-box">
+					<%= link_to region.name, "#", class: "region-link", :"data-id" => region.id %> (<%= region.worlds.count %>)
+				</div>
+			</div>
+		<% end %>
+	</div>
+<% end %>

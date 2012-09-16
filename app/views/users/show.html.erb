@@ -1,0 +1,33 @@
+<div class="page-header">
+	<h1><%= @user.username %> <%= "<small>#{link_to("Edit", edit_user_path(@user))}</small>".html_safe if @user == current_user %></h1>
+</div>
+
+<div class="row">
+	<div class="span2">
+		<div class="tgw-box">
+			Joined
+		</div>
+	</div>
+	<div class="span2">
+		<div class="tgw-box">
+			Role
+		</div>
+	</div>
+	<div class="span2">
+		<div class="tgw-box">
+			World
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span2" style="text-align:center;">
+		<%= @user.created_at.strftime(date_string) %>
+	</div>
+	<div class="span2" style="text-align:center;">
+		<%= @user.role %>
+	</div>
+	<div class="span2" style="text-align:center;">
+		<%= @user.world ? @user.world.name : "Not Set" %>
+	</div>
+</div>

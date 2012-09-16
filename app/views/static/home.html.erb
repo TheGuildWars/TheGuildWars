@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="span4">
+		<div class="tgw-info tgw-box">
+			<h2><%= World.all.count %> Worlds</h2>
+			<h2>0 Guilds</h2>
+		</div>
+	</div>
+	<div class="span8">
+		<div class="tgw-header"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<h2>Welcome to the Guild Wars</h2>
+	</div>
+	<div class="span4">
+		<h2><%= @article.title%></h2>
+	</div>
+	<div class="span2">
+		<%= @article.created_at.strftime(date_string) %><br />
+		<%= @article.user.username %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span6">
+		<%= render 'short_about' %>
+	</div>
+	<div class="span6">
+		<%= @article.body.markabb %>
+	</div>
+</div>
