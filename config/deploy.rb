@@ -66,6 +66,7 @@ task :deploy => :environment do
 
     to :launch do
       queue 'bundle exec rake db:seed RAILS_ENV=production'
+      queue '/etc/init.d/tgw restart'
     end
   end
 end
