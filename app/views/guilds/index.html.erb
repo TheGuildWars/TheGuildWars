@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>Guilds</h1>
+	<h1>Guilds <small><%= link_to("Add a Guild", new_guild_path) if can? :new, Guild %></small></h1>
 </div>
 
 <% if current_user && !(current_user.world_id) %>

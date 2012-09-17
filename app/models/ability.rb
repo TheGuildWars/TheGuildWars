@@ -22,6 +22,7 @@ class Ability
       user == @user
     end
     can :read, Region
+    can :new, Guild
   end
   
   def administrator_permissions
