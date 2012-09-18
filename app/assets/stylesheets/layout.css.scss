@@ -29,15 +29,10 @@ body{
 }
 
 html, body{
-		height:100%;
 }
 
 #main{
-	min-height:100%;
-	height:auto !important;
- 	height:100%;
-	position:relative;
-	padding-bottom:140px;
+	/*padding-bottom:140px; */
 	
 	.tgw-footer{
 		background-image:url(/assets/bottom.png);
@@ -47,8 +42,6 @@ html, body{
 		text-align:center;
 		padding-top:100px;
 		width:100%;
-		position:absolute;
-		bottom:0px;
 		color:#fff;
 	}
 }
