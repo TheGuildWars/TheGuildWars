@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1><%= @article.title %></h1>
+	<h1><%= @article.title %><%= " <small>#{link_to "Edit", edit_article_path(@article)}</small>".html_safe if can? :edit, @article %></h1>
 </div>
 
 <div class="row">

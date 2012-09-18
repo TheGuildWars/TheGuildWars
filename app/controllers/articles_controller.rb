@@ -6,20 +6,30 @@ class ArticlesController < ApplicationController
   end
   
   def new
-    @article = Article.new
   end
   
   def show
-    @article = Article.find(params[:id])
   end
   
   def create
     @article = Article.new(params[:article])
     if @article.save
-      render :show
+      render :show, notice: "Successfully posted article"
     else
       flash[:alert] = "Unable to save article"
       render :new
+    end
+  end
+  
+  def edit
+  end
+  
+  def update
+    if @article.update_attributes(params[:article])
+      flash[:notice] = "Successfully posted article"
+      render :show
+    else
+      flash[:alert] = "Unable to update article"
     end
   end
 end
