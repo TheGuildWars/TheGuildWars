@@ -45,3 +45,11 @@ html, body{
 		color:#fff;
 	}
 }
+
+blockquote{
+	border:none;
+	
+	.name{
+		font-weight:bold;
+	}
+}
