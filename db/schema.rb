@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120916080442) do
+ActiveRecord::Schema.define(:version => 20120923164708) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(:version => 20120916080442) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "forums", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.string   "description"
+    t.string   "attached_to"
+    t.integer  "attached_to_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "guilds", :force => true do |t|
@@ -30,8 +40,24 @@ ActiveRecord::Schema.define(:version => 20120916080442) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "posts", :force => true do |t|
+    t.integer  "topic_id"
+    t.integer  "user_id"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "forum_id"
+  end
+
   create_table "regions", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "name"
+    t.integer  "forum_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -52,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20120916080442) do
     t.datetime "updated_at",                             :null => false
     t.integer  "world_id"
     t.integer  "role_id",                :default => 0
+    t.text     "signature",              :default => ""
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

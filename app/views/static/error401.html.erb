@@ -11,7 +11,7 @@
 			<% unless current_user %>
 				Please <%= link_to "Sign in", new_user_session_path %> and try again
 			<% else %>
-				FOO
+				Logged in as <b><%= current_user.username %></b>
 			<% end%>
 		</div>
 	</div>

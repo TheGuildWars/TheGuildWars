@@ -22,7 +22,13 @@ class Ability
       user == @user
     end
     can :read, Region
-    # can :new, Guild
+    can :read, Forum
+    can :read, Topic
+    can :create, Topic do |topic|
+      topic.forum_id != 2
+    end
+    can :read, Post
+    can :create, Post
   end
   
   def administrator_permissions

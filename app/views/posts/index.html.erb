@@ -1,0 +1,35 @@
+<div class="page-header">
+	<h1><%= @topic.name %> <small><%= @forum.name %></small></h1>
+</div>
+
+<div class="row">
+	<div class="span8">
+		&nbsp;
+		<%= paginate @posts %>
+	</div>
+	<div class="span4">
+		<div class="well">
+			<%= link_to("Reply", new_forum_topic_post_path(@forum, @topic), class: "btn btn-success") if can? :new, @topic.posts.new %>
+		</div>
+	</div>
+</div>
+
+<% @posts.each do |post| %>
+	<div class="row" style="margin-top:30px;">
+		<div class="span3">
+			<div class="tgw-box">
+				<%= image_tag gravatar_url(post.user.email, {s: 100}) %><br />
+				<%= link_to post.user.username, post.user %><br />
+				Posts: <%= post.user.posts.count %><br />
+				<%= post.created_at.strftime(time_string)%>
+			</div>
+		</div>
+		
+		<div class="span9">
+			<%= post.body.markabb %>
+			<br />
+			<hr>
+			<%= post.user.signature.markabb %>
+		</div>
+	</div>
+<% end %>

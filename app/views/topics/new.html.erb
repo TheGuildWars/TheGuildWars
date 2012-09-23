@@ -1,0 +1,19 @@
+<div class="page-header">
+	<h1>New Topic <small>in <%= @forum.name %></small></h1>
+</div>
+
+<%= form_for [@forum, @topic] do |f| %>
+	<div class="row">
+		<div class="span4">
+			<%= f.label :name, "Title" %><%= f.text_field :name %>
+			<div class="well">
+				<%= f.submit (params[:action] == "edit" ? "Edit Post" : "Create Topic"), class: "btn btn-primary" %>
+				<%= link_to "Cancel", forum_topics_path(@forum), class: "btn btn-danger" %>
+			</div>
+		</div>
+		<div class="span8">
+			<%= f.label :post_body, "Body" %>
+			<%= f.text_area :post_body, style: 'width:600px;' %>
+		</div>
+	</div>
+<% end %>

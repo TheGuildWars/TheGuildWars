@@ -24,6 +24,7 @@ end
 gem 'cancan'
 gem 'devise'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'markabb'
 gem 'turnout'
 gem 'unicorn'

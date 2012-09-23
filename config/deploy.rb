@@ -23,6 +23,8 @@ set :shared_paths, ['config/database.yml', 'log', 'tmp/pids', 'db/production.sql
 set :user, 'tgw'    # Username in the server to SSH to.
 #   set :port, '30000'     # SSH port number.
 
+set :maintenance_mode, "rake maintenance:start"
+
 # This task is the environment that is loaded for most commands, such as
 # `mina deploy` or `mina rake`.
 task :environment do

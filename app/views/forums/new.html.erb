@@ -1,0 +1,50 @@
+<div class="page-header">
+	<h1>New Forum</h1>
+</div>
+
+<%= form_for @forum do |f| %>
+	<div class="row">
+		<div class="span2">
+			<%= f.label :name %>
+		</div>
+		<div class="span4">
+			<%= f.text_field :name %>
+		</div>
+		<div class="span6">
+			A name for the forum e.g. News
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span2">
+			<%= f.label :description %>
+		</div>
+		<div class="span4">
+			<%= f.text_field :description %>
+		</div>
+		<div class="span6">
+			A Description for the forum, shown under the name in lists.
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span2">
+			<%= f.label :parent_id, "Parent" %>
+		</div>
+		<div class="span4">
+			<%= f.collection_select :parent_id, Forum.for_parent_select, :first, :last %>
+		</div>
+		<div class="span6">
+			The Parent forum for this forum, select root for none.
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span2">
+			&nbsp;
+		</div>
+		<div class="span2">
+			<%= f.submit "Create Forum", class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>

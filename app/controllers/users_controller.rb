@@ -12,4 +12,12 @@ class UsersController < ApplicationController
     @user.world_id = params[:world_id]
     @user.save
   end
+  
+  def update
+    if @user.update_attributes(params[:user])
+      redirect_to user_path(@user)
+    else
+      render 'new'
+    end
+  end
 end

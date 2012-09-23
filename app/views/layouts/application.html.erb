@@ -15,7 +15,7 @@
 				<li><%= link_to "About", about_path %></li>
 				<li><%= link_to("Articles", articles_path) if can? :read, Article %></li>
 				<li><%= link_to("Guilds", guilds_path) if can? :read, Guild %></li>
-				<li><%= link_to("Forums", "#") if true == false %></li>
+				<li><%= link_to("Forums", forums_path) if can? :read, Forum %></li>
 			</ul>
 			<ul class="nav pull-right">
 				<% if user_signed_in? %>

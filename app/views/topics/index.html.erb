@@ -1,0 +1,53 @@
+<div class="page-header">
+	<h1><%= @forum.name %></h1>
+</div>
+
+<div class="row">
+	<div class="span8">
+		&nbsp;
+		<%= paginate @topics %>
+	</div>
+	<div class="span4">
+		<div class="well">
+			<%= link_to("New Topic", new_forum_topic_path(@forum), class: "btn btn-success") if can? :new, @forum.topics.new %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span1">
+		&nbsp;
+	</div>
+	<div class="span5">
+		Topic
+	</div>
+	<div class="span1">
+		Started By
+	</div>
+	<div class="span1">
+		Posts
+	</div>
+	<div class="span4">
+		Last Post
+	</div>
+</div>
+
+<% @topics.each do |topic| %>
+	<div class="row">
+		<div class="span1">
+			&nbsp;
+		</div>
+		<div class="span5">
+			<%= link_to topic.name, forum_topic_posts_path(@forum, topic) %>
+		</div>
+		<div class="span1">
+			<%= topic.posts.first.user.username %>
+		</div>
+		<div class="span1">
+			<%= topic.posts.count %>
+		</div>
+		<div class="span4">
+			<%= topic.posts.last.user.username %>
+		</div>
+	</div>
+<% end %>
