@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   load_and_authorize_resource
   def index
     @forum = Forum.find(params[:forum_id])
-    @topics = @topics.page(params[:page]).per(20)
+    @topics = @forum.topics.page(params[:page]).per(20)
   end
   
   def show

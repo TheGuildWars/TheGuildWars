@@ -36,7 +36,7 @@
 						<% if child.posts.count == 0 %>
 						No Posts
 						<% else %>
-						Latest Post: <%= child.posts.last.topic.name %><br />
+						Latest Post: <%= link_to child.posts.last.topic.name, forum_topic_posts_path(child, child.posts.last.topic) %><br />
 						By: <%= link_to child.posts.last.user.username, user_path(child.posts.last.user) %>
 						<% end %>
 					</div>

@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
   def index
-    @topic = @posts.first.topic
+    @topic = Topic.find(params[:topic_id])
     @forum = @topic.forum
-    @posts = @posts.page(params[:page]).per(10)
+    @posts = @topic.posts.page(params[:page]).per(10)
   end
   
   def new
