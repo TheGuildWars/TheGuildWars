@@ -18,6 +18,14 @@
 		text-align:center;
 }
 
+.tgw-box-red{
+		@include border-radius(10px);
+		background-image:url(/assets/box_bg_red.png);
+		color:#fff;
+		padding:10px;
+		text-align:center;
+}
+
 .article-row{
 	margin-bottom:15px;
 }

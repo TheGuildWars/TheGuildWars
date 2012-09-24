@@ -28,10 +28,24 @@ class Ability
       topic.forum_id != 2
     end
     can :read, Post
-    can :create, Post
+    can :create, Post do |post|
+      !(post.topic.closed)
+    end
   end
   
   def administrator_permissions
     can :manage, :all
+    cannot :close, Topic do |topic|
+      topic.closed
+    end
+    cannot :open, Topic do |topic|
+      !(topic.closed)
+    end
+    cannot :sticky, Topic do |topic|
+      topic.sticky
+    end
+    cannot :un_sticky, Topic do |topic|
+      !(topic.sticky)
+    end
   end
 end

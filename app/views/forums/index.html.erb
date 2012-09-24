@@ -8,7 +8,9 @@
 		&nbsp;
 	</div>
 	<div class="span4">
-		<%= link_to("New Forum", new_forum_path, class: "btn btn-success") %>
+		<div class="well">
+			<%= link_to("New Forum", new_forum_path, class: "btn btn-success") %>
+		</div>
 	</div>
 </div>
 <% end %>
@@ -41,7 +43,57 @@
 						<% end %>
 					</div>
 				</div>
+				<hr>
 			<% end %>
 		<% end %>
 	<% end %>
 <% end %>
+<div class="row">
+	<div class="span3">
+		<div class="tgw-box">
+			Users Online
+		</div>
+	</div>
+	<div class="span3">
+		<div class="tgw-box">
+			Users
+		</div>
+	</div>
+	
+	<div class="span3">
+		<div class="tgw-box">
+			Topics
+		</div>
+	</div>
+	
+	<div class="span3">
+		<div class="tgw-box">
+			Posts
+		</div>
+	</div>
+</div>
+
+<div class="row" style="margin-top:20px;">
+	<div class="span3">
+		<div class="tgw-box-red">
+			0
+		</div>
+	</div>
+	<div class="span3">
+		<div class="tgw-box-red">
+			<%= User.all.count %>
+		</div>
+	</div>
+	
+	<div class="span3">
+		<div class="tgw-box-red">
+			<%= Topic.all.count %>
+		</div>
+	</div>
+	
+	<div class="span3">
+		<div class="tgw-box-red">
+			<%= Post.all.count%>
+		</div>
+	</div>
+</div>

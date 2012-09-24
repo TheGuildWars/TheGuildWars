@@ -31,23 +31,17 @@
 		Last Post
 	</div>
 </div>
+<hr>
+<% if @stickys.count != 0 %>
+	<h3>Sticky Topics</h3>
+	<hr>
+	<% @stickys.each do |topic| %>
+		<%= render 'topic', topic: topic %>
+	<% end %>
+	<h3>Normal Topics</h3>
+	<hr>
+<% end %>
 
 <% @topics.each do |topic| %>
-	<div class="row">
-		<div class="span1">
-			&nbsp;
-		</div>
-		<div class="span5">
-			<%= link_to topic.name, forum_topic_posts_path(@forum, topic) %>
-		</div>
-		<div class="span1">
-			<%= topic.posts.first.user.username %>
-		</div>
-		<div class="span1">
-			<%= topic.posts.count %>
-		</div>
-		<div class="span4">
-			<%= topic.posts.last.user.username %>
-		</div>
-	</div>
+	<%= render 'topic', topic: topic %>
 <% end %>

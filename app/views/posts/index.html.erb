@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1><%= @topic.name %> <small><%= @forum.name %></small></h1>
+	<h1><%= @topic.name %> <small><%= @forum.name %></small><%= " <span class=\"label label-important\">Closed</span>".html_safe if @topic.closed %><%= " <span class=\"label label-info\">Sticky</span>".html_safe if @topic.closed %></h1>
 </div>
 
 <div class="row">
@@ -10,6 +10,10 @@
 	<div class="span4">
 		<div class="well">
 			<%= link_to("Reply", new_forum_topic_post_path(@forum, @topic), class: "btn btn-success") if can? :new, @topic.posts.new %>
+			<%= link_to("Close", close_forum_topic_path(@forum, @topic), class: "btn btn-danger") if can? :close, @topic %>
+			<%= link_to("Open", open_forum_topic_path(@forum, @topic), class: "btn btn-primary") if can? :open, @topic %>
+			<%= link_to("Sticky", sticky_forum_topic_path(@forum, @topic), class: "btn btn-primary") if can? :sticky, @topic %>
+			<%= link_to("Un Sticky", un_sticky_forum_topic_path(@forum, @topic), class: "btn btn-danger") if can? :un_sticky, @topic %>
 		</div>
 	</div>
 </div>

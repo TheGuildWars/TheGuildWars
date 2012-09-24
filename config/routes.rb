@@ -10,6 +10,10 @@ TheGuildWars::Application.routes.draw do
   resources :forums do
     resources :topics do
       resources :posts
+      get :close, on: :member
+      get :open, on: :member
+      get :sticky, on: :member
+      get :un_sticky, on: :member
     end
   end
   resources :guilds
