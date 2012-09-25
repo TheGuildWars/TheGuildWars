@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1><%= @topic.name %> <small><%= @forum.name %></small><%= " <span class=\"label label-important\">Closed</span>".html_safe if @topic.closed %><%= " <span class=\"label label-info\">Sticky</span>".html_safe if @topic.closed %></h1>
+	<h1><%= @topic.name %> <small><%= @forum.name %></small><%= " <span class=\"label label-important\">Closed</span>".html_safe if @topic.closed %><%= " <span class=\"label label-info\">Sticky</span>".html_safe if @topic.sticky %></h1>
 </div>
 
 <div class="row">

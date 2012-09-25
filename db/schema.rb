@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924193527) do
+ActiveRecord::Schema.define(:version => 20120925131237) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(:version => 20120924193527) do
     t.string   "description"
     t.string   "attached_to"
     t.integer  "attached_to_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "readable_mask",  :default => 0
+    t.integer  "topicable_mask", :default => 0
+    t.integer  "replyable_mask", :default => 0
+    t.integer  "moderable_mask", :default => 0
   end
 
   create_table "guilds", :force => true do |t|

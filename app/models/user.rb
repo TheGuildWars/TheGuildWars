@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :posts
   belongs_to :world
   
-  Roles = ["Member", "Administrator"]
+  Roles = ["Member", "Administrator", "Guest", "Moderator"]
   
   def role
     Roles[role_id]

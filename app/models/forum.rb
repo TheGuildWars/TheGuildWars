@@ -4,6 +4,8 @@ class Forum < ActiveRecord::Base
   has_many :topics
   has_many :posts
   
+  Permissions = ["Readable", "Topicable", "Replyable", "Moderable"]
+  
   def self.for_parent_select
     out = [[0, "Root"]]
     Forum.top_level.each do |forum|
@@ -22,5 +24,25 @@ class Forum < ActiveRecord::Base
   
   def last_post
     @last_post ||= posts.last
+  end
+  
+  def readable
+    User::Roles.reject { |r| ((readable_mask || 0) & 2**User::Roles.index(r)).zero? }
+  end
+  
+  def topicable
+    User::Roles.reject { |r| ((topicable_mask || 0) & 2**User::Roles.index(r)).zero? }
+  end
+  
+  def replyable
+    User::Roles.reject { |r| ((replyable_mask || 0) & 2**User::Roles.index(r)).zero? }
+  end
+  
+  def moderable
+    User::Roles.reject { |r| ((moderable_mask || 0) & 2**User::Roles.index(r)).zero? }
+  end
+  
+  def apply_bitmask(a)
+    (a & User::Roles).map { |r| 2**User::Roles.index(r) }.sum
   end
 end

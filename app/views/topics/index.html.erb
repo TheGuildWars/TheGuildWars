@@ -10,6 +10,7 @@
 	<div class="span4">
 		<div class="well">
 			<%= link_to("New Topic", new_forum_topic_path(@forum), class: "btn btn-success") if can? :new, @forum.topics.new %>
+			<%= link_to("Edit Forum", edit_forum_path(@forum), class: "btn btn-primary") if can? :edit, @forum %>
 		</div>
 	</div>
 </div>

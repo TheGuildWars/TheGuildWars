@@ -3,7 +3,7 @@
 		&nbsp;
 	</div>
 	<div class="span5">
-		<%= link_to topic.name, forum_topic_posts_path(@forum, topic) %><%= " <span class=\"label label-important\">Closed</span>".html_safe if topic.closed %><%= " <span class=\"label label-info\">Sticky</span>".html_safe if topic.closed %>
+		<%= link_to topic.name, forum_topic_posts_path(@forum, topic) %><%= " <span class=\"label label-important\">Closed</span>".html_safe if topic.closed %><%= " <span class=\"label label-info\">Sticky</span>".html_safe if topic.sticky %>
 	</div>
 	<div class="span1">
 		<%= topic.posts.first.user.username %>
