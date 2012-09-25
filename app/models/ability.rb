@@ -77,14 +77,4 @@ class Ability
       !(topic.sticky)
     end
   end
-
-  def moderation
-
-  end
-  
-  def reply_to_open_topics_only
-    can :create, Post do |post|
-      !(post.topic.closed)
-    end
-  end
 end
